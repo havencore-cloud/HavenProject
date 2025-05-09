@@ -1,0 +1,20 @@
+# Ignore environment config and secrets
+.env
+
+# Ignore cached and logged data
+price_cache.json
+trade_log.csv
+trade_log.json
+
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Log files
+*.log
