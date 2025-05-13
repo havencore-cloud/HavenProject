@@ -1,46 +1,67 @@
 # Pulse Core
 
-**Pulse** is an ethical crypto trading assistant designed to protect users from volatility, manipulation, and fraudulent tokens. Built for the Solana ecosystem, Pulse simulates and executes trades using transparent strategies, token risk filters, and automated logic—all grounded in safety and clarity.
+**Pulse** is an ethical crypto trading assistant built to protect users from manipulation, rugpulls, and misinformation in the Solana ecosystem. Pulse uses **real on-chain liquidity pools**, transparent trading logic, and a modular architecture to make crypto safer and smarter.
 
-## 🌱 Phase 1 Complete:
-- Real-time token tracking (Dexscreener + Jupiter integration)
-- Modular trading strategy engine
-- Simulation logic with customizable trade signals
+---
 
-## 🔜 In Progress:
-- Live trade execution via Jupiter Swap
-- Token risk filter (liquidity, mintability, blacklistable)
-- Profit/loss tracking with gas and slippage included
+## ✅ Phase 1 Complete (MVP Milestone)
 
-## 🛡️ Coming Soon: Pulse Verified (via Ember)
-Pulse will integrate with **Ember**, a trust layer that scores tokens and wallets based on transparency, behavior, and user protections. Together, they form the foundation of the Haven ecosystem.
+- 🧠 Real-time token price parsing from **Orca and Raydium pools**
+- 🔄 Automatic fallback system (tries Orca first, then Raydium)
+- 🧪 Strategy simulation engine (buy/hold/sell logic)
+- 📦 Modular token/project config with pool mapping (`projects.json`)
+- 🧠 Strategy engine with customizable buy/sell decision tree
+- 🔍 WebSocket token activity tracking
+- 🔧 Integrated logging, config, and dry-run modes
+
+---
+
+## 🔧 Currently In Progress
+
+- 💸 Live trade execution engine (Jupiter, Phantom, or native)
+- 📊 Real-time liquidity and volume scoring
+- 🧠 Token safety scoring (Ember integration)
+- 📈 Profit/loss tracking with gas and slippage factored in
+- 🧩 Plugin-ready architecture for strategy packs and alerts
+
+---
+
+## 🔐 Coming Soon: **Pulse Verified** (via Ember)
+
+Pulse will integrate with **Ember**, a decentralized trust layer that scores:
+- Token mint rules (freeze authority, mintable flags)
+- Wallet behavior (whale dominance, malicious movement)
+- Community trust and transparency factors
+
+Together, Pulse + Ember will form the heartbeat of the **Haven ecosystem**.
+
+---
 
 ## 👁️ Vision
-We believe trading shouldn’t be a gamble. Pulse exists to make wealth-building safer, more ethical, and more accessible—for everyone, not just whales.
+
+> “We believe trading shouldn’t be a gamble.”
+
+Pulse is here to rebalance the playing field. This isn't about chasing hype — it's about giving everyone, not just whales, the tools to trade safely, ethically, and confidently.
 
 ---
 
-### 🔗 Resources
-- [Landing Page](https://yourusername.github.io/pulse-core) (GitHub Pages)
-- [Solana](https://solana.com/)
-- [Dexscreener](https://dexscreener.com/)
-- [Jupiter Aggregator](https://jup.ag/)
-
----
-
-### 🔧 Setup
+## 🔧 Setup
 
 ```bash
 # Clone the repo
 git clone https://github.com/yourusername/pulse-core.git
 cd pulse-core
 
-# Set up virtual environment
+# Create and activate virtual environment
 python -m venv .venv
-source .venv/bin/activate  # or .venv\Scripts\activate on Windows
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 
-# Install dependencies
-pip install -r requirements.txt
+# Install required packages
+pip install -r bot/utilities/requirements.txt
 
-# Run the main tracker
-python tracker.py
+# Set your .env file
+cp .env.example .env
+# Add your Helius API key and RPC URL
+
+# Run the bot
+python -m bot.main
