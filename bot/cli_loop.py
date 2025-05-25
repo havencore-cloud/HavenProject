@@ -2,7 +2,7 @@
 # Command-line loop to monitor token metrics, wallet activity, and analytics every N seconds
 
 import time
-from tracker import print_token_metrics
+from bot.tracker.token_tracker import print_token_metrics
 # from walletwatch import print_wallet_trades
 from analytics.analytics_core import get_metrics_snapshot
 

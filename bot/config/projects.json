@@ -1,0 +1,33 @@
+[
+  {
+    "name": "BONK",
+    "symbol": "BONK",
+    "mint": "DezXjRtYhR6A7gM7DMaJpE8zQw1rxJ3mMhXXa9eDUQMZ",
+    "whitelisted": true,
+    "notes": "Meme token test",
+    "strategy": {
+      "track_pnl": true,
+      "watch_whales": false,
+      "auto_trade": true
+    },
+    "pools": {
+      "orca": "5zpyutJu9ee6jFymDGoK7F6S5Kczqtc9FomP3ueKuyA9",
+      "raydium": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263"
+    }
+  },
+  {
+    "name": "Clapcat",
+    "symbol": "CLAP",
+    "mint": "CLaPpCATc4t5mTD3dyQTdSG21sHfaD3sHQdU98YDfFhR",
+    "whitelisted": false,
+    "notes": "Volatility test",
+    "strategy": {
+      "track_pnl": false,
+      "watch_whales": true,
+      "auto_trade": true
+    },
+    "pools": {
+      "raydium": "..."  
+    }
+  }
+]

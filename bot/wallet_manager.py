@@ -1,6 +1,6 @@
 # wallet_manager.py
 
-from config import DRY_RUN_MODE
+from bot.config import DRY_RUN_MODE
 
 
 # Fake wallets storage

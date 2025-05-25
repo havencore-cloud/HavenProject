@@ -3,7 +3,7 @@
 
 import requests
 import time
-from config import MONITORED_TOKENS, HELIUS_API_KEY
+from config import VALID_USER_TOKENS, HELIUS_API_KEY
 
 BASE_URL = "https://api.helius.xyz/v0/token-transfers"
 LAST_SEEN_SIGNATURES = {}
@@ -43,7 +43,7 @@ def fetch_wallet_activity(token_mint):
         return []
 
 def print_wallet_trades():
-    for token in MONITORED_TOKENS:
+    for token in VALID_USER_TOKENS:
         mint = token["mint"]
         print(f"\n[WALLETWATCH] Checking wallet activity for {token['symbol']}...")
         trades = fetch_wallet_activity(mint)

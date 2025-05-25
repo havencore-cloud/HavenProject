@@ -1,8 +1,8 @@
 # trade_executor.py
 # Executes buy/sell trades in dry-run or live mode
 
-from config import DRY_RUN_MODE
-from wallet_manager import get_trade_wallet, get_vault_wallet, transfer_to_vault
+from bot.config import DRY_RUN_MODE
+from bot.wallet_manager import get_trade_wallet, get_vault_wallet, transfer_to_vault
 
 class TradeExecutor:
     def __init__(self, trading_api):
