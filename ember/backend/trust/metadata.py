@@ -2,6 +2,7 @@
 
 from solders.pubkey import Pubkey
 from solana.rpc.api import Client
+from trust.metaplex import decode_metaplex_metadata
 import base64
 
 METADATA_PROGRAM_ID = Pubkey.from_string("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s")
@@ -43,9 +44,23 @@ def assess_trust(update_authority_str):
     return "⚠️ Update Authority Active"
 
 def check_token_trust(mint):
+    # === Step 1: Try on-chain raw fetch
     data = fetch_metadata_account(mint)
-    if data is None:
-        return "❓ No Metadata Found", "Unknown"
-    
-    update_auth = parse_update_authority(data)
-    return assess_trust(update_auth), update_auth
+    if data is not None:
+        update_auth = parse_update_authority(data)
+        trust_status = assess_trust(update_auth)
+        print(f"[TRUST] On-chain authority via RPC: {update_auth} → {trust_status}")
+        return trust_status, update_auth
+
+    # === Step 2: Fallback to Metaplex decode
+    print(f"[TRUST] RPC fetch failed — falling back to decode_metaplex_metadata()")
+    meta = decode_metaplex_metadata(mint)
+
+    if meta and "updateAuthority" in meta:
+        fallback_auth = meta["updateAuthority"]
+        trust_status = assess_trust(fallback_auth)
+        print(f"[TRUST] Fallback authority from Metaplex decode: {fallback_auth} → {trust_status}")
+        return trust_status, fallback_auth
+
+    print(f"[TRUST] Fallback decode failed. No valid metadata found.")
+    return "❓ No Metadata Found", "Unknown"

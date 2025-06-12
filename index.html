@@ -1,0 +1,82 @@
+import React from "react";
+
+export default function HavenHomePage() {
+  return (
+    <div className="min-h-screen bg-gray-950 text-white font-sans">
+      {/* Header */}
+      <header className="p-6 flex justify-between items-center border-b border-gray-800">
+        <img src="/images/haven-logo.png" alt="Haven Logo" className="h-10" />
+        <nav className="space-x-4">
+          <a href="#about" className="hover:underline">Our Story</a>
+          <a href="#services" className="hover:underline">Services</a>
+          <a href="#trust" className="hover:underline">Trust Layer</a>
+          <a href="#roadmap" className="hover:underline">Roadmap</a>
+          <a href="#contact" className="hover:underline">Contact</a>
+        </nav>
+      </header>
+
+      {/* Hero */}
+      <section className="text-center py-20 px-4">
+        <h2 className="text-4xl md:text-6xl font-extrabold mb-4">Read the Chain. Reclaim the Future.</h2>
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          Haven is a human-first Web3 platform. Our first product, Ember, decodes blockchain data to expose risks and verify token legitimacy across Solana.
+        </p>
+        <img src="/images/ember-dashboard.png" alt="Ember Dashboard" className="mx-auto mt-10 rounded-xl w-full max-w-4xl" />
+      </section>
+
+      {/* Our Story */}
+      <section id="about" className="py-20 px-6 max-w-4xl mx-auto">
+        <h3 className="text-3xl font-bold text-center mb-6">Our Story</h3>
+        <p className="text-gray-300 text-lg">Haven was born from a simple idea: the blockchain should protect people, not just protocols. In a space crowded with manipulation and noise, we’re building tools that make Web3 safer, more transparent, and more human. We believe everyone deserves access to ethical, trustworthy infrastructure—and Ember is just the beginning.</p>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="bg-gray-900 py-20 px-6">
+        <h3 className="text-3xl font-bold text-center mb-10">What We Offer</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
+            <h4 className="text-xl font-semibold mb-2 text-emerald-300">Ember</h4>
+            <p className="text-gray-300">Our trust engine. It scores tokens, flags risk, and helps users verify what’s real on Solana.</p>
+          </div>
+          <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
+            <h4 className="text-xl font-semibold mb-2 text-emerald-300">Pulse (Coming Soon)</h4>
+            <p className="text-gray-300">Our ethical trading assistant. Pulse reads patterns, manages risk, and protects users from bad actors.</p>
+          </div>
+          <div className="bg-gray-800 rounded-2xl p-6 shadow-md">
+            <h4 className="text-xl font-semibold mb-2 text-emerald-300">MetaChain + HRL</h4>
+            <p className="text-gray-300">A future-proof framework for semantic context and decentralized mutual aid. Transparent, distributed, human-first.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Trust Layer */}
+      <section id="trust" className="py-20 px-6 max-w-5xl mx-auto">
+        <h3 className="text-3xl font-bold text-center mb-6">What is the Trust Layer?</h3>
+        <p className="text-gray-300 text-lg text-center mb-6">The Haven Trust Layer analyzes wallet behavior, contract history, token metadata, and ecosystem activity to generate human-readable trust signals. It empowers users to avoid scams, understand project credibility, and build responsibly.</p>
+        <img src="/images/ember-dashboard.png" alt="Trust Layer Interface" className="mx-auto rounded-xl w-full max-w-3xl" />
+      </section>
+
+      {/* Roadmap */}
+      <section id="roadmap" className="bg-gray-900 py-20 px-6">
+        <h3 className="text-3xl font-bold text-center mb-10">Our Roadmap</h3>
+        <div className="flex justify-center">
+          <img src="/images/ember-roadmap.png" alt="Roadmap" className="rounded-xl w-full max-w-4xl" />
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="bg-emerald-900 py-20 px-6 text-center">
+        <h3 className="text-3xl font-bold mb-4">Let’s Build Trust into Web3</h3>
+        <p className="text-lg text-white mb-6">Want to support, collaborate, or explore integrations with Haven? Reach out to our team.</p>
+        <a href="mailto:team@havencore.io" className="bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold hover:bg-gray-200 transition">
+          Contact Us
+        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center text-gray-500 py-6 border-t border-gray-800 text-sm">
+        &copy; {new Date().getFullYear()} HavenCore. A Human-First Trust Layer.
+      </footer>
+    </div>
+  );
+}
