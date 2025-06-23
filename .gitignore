@@ -1,0 +1,31 @@
+# General
+*.log
+*.pyc
+__pycache__/
+.DS_Store
+.vscode/
+
+# Node / frontend
+node_modules/
+dist/
+
+# Python cache / data
+*.cache
+*.json.cache
+*.pickle
+*.db
+*.sqlite3
+
+# Project-specific cache
+ember/backend/liquidity/*_cache.json
+pulse/**/cache/
+*.tmp
+
+# Top-level .env files
+.env
+.env.*
+
+# Subproject .envs (in case ember, pulse, metachain use their own)
+ember/.env
+pulse/.env
+metachain/.env
