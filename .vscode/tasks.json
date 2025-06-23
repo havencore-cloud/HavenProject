@@ -1,0 +1,17 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "eject",
+			"path": "haven-site",
+			"problemMatcher": [],
+			"label": "npm: eject - haven-site",
+			"detail": "react-scripts eject",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		}
+	]
+}

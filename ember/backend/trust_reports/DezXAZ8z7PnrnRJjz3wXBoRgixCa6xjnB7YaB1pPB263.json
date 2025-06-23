@@ -1,0 +1,30 @@
+{
+  "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+  "update_authority": {
+    "on_chain": "9AhKqLR67hwapvG8SA2JFXaCshXc9nALJjpKaHZrsbkw",
+    "declared": "9AhKqLR67hwapvG8SA2JFXaCshXc9nALJjpKaHZrsbkw"
+  },
+  "badges": [
+    "\u26a0\ufe0f Metadata can still be changed.",
+    "\u26a0\ufe0f Update Authority Active",
+    "\ud83c\udf10 Tradable via Jupiter"
+  ],
+  "flags": [
+    "Update authority not burned."
+  ],
+  "token_metadata": {
+    "name": "Bonk",
+    "symbol": "Bonk"
+  },
+  "liquidity": {
+    "found": true,
+    "pair": "LetsBONK/WSOL",
+    "liquidity_usd": 398164.15297877,
+    "trust_score": {
+      "score": 0,
+      "error": "No data returned for pool"
+    },
+    "warnings": []
+  },
+  "jupiter_tradable": true
+}

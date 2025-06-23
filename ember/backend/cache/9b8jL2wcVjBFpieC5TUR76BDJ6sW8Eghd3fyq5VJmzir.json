@@ -1,0 +1,31 @@
+{
+  "mint": "9b8jL2wcVjBFpieC5TUR76BDJ6sW8Eghd3fyq5VJmzir",
+  "update_authority": {
+    "on_chain": "7KD5CrwV3UYaLrF3mzujL89ovK1PCRSSiei7LAfxSvwy",
+    "declared": "7KD5CrwV3UYaLrF3mzujL89ovK1PCRSSiei7LAfxSvwy"
+  },
+  "badges": [
+    "\u26a0\ufe0f Metadata can still be changed.",
+    "\u26a0\ufe0f Update Authority Active"
+  ],
+  "flags": [
+    "Raydium cache is empty or failed to load",
+    "Update authority not burned.",
+    "\u26a0\ufe0f Jupiter liquidity check failed.",
+    "\u26a0\ufe0f Token not listed in Jupiter tradable tokens"
+  ],
+  "token_metadata": {
+    "name": "Clap Cat",
+    "symbol": "CLAP",
+    "uri": "https://gateway.irys.xyz/vC0sVUpHO_4MvteyTKfIg7rdgMZ2fMhZ9yYA04kTPCo",
+    "sellerFeeBasisPoints": 0
+  },
+  "liquidity": {
+    "found": false,
+    "liquidity_usd": 0,
+    "pair": "Error",
+    "warnings": [
+      "Raydium cache is empty or failed to load"
+    ]
+  }
+}

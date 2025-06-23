@@ -1,64 +1,85 @@
+import React from 'react';
+
 export default function ResultCard({ data }) {
-  const { mint, update_authority, badges, flags, token_metadata } = data;
-  const name = token_metadata?.name || "Unknown";
-  const symbol = token_metadata?.symbol || "N/A";
+  const {
+    mint = "Unknown",
+    update_authority = {},
+    badges = [],
+    flags = [],
+    token_metadata = {},
+    liquidity = {},
+    jupiter_tradable = false,
+  } = data || {};
+
+  const {
+    pair: pool_pair = "None found",
+    liquidity_usd = 0,
+    found: liquidity_found = false,
+  } = liquidity;
+
+  const clean = (str) => typeof str === "string" ? str.replace(/\x00/g, "").trim() : str;
 
   return (
-    <div className="bg-gray-900 p-6 rounded-xl shadow-lg space-y-4 border border-gray-700">
-      <div className="text-xl font-semibold text-white flex items-center justify-between">
-        <div>
-          🪙 {name} <span className="text-gray-400">({symbol})</span>
-        </div>
-        <button
-          onClick={() => navigator.clipboard.writeText(mint)}
-          className="text-sm text-blue-400 hover:underline"
-        >
-          📋 Copy Mint
-        </button>
-      </div>
+    <div className="bg-gray-900 border border-gray-700 rounded-lg p-6 shadow-lg space-y-4">
+      <h2 className="text-2xl font-bold text-white">
+  🪙 {clean(token_metadata?.name) || "Unknown Token"}
+      </h2>
 
-      <div className="text-sm text-gray-400 break-all">🔗 {mint}</div>
 
-      <div className="text-xs text-gray-500 space-y-1">
+
+      <p className="text-sm text-gray-400">📋 Copy Mint</p>
+      <p className="break-all text-blue-400 underline">{mint}</p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm mt-4">
         <div>
-          On-Chain Authority:{" "}
-          <span className="text-white">
-            {update_authority?.on_chain || "Unknown"}
-          </span>
+          <p className="text-gray-300 font-medium">On-Chain Authority:</p>
+          <p className="text-gray-400">{update_authority.on_chain || "Unknown"}</p>
         </div>
         <div>
-          Declared in Metadata:{" "}
-          <span className="text-white">
-            {update_authority?.declared || "Unknown"}
-          </span>
+          <p className="text-gray-300 font-medium">Declared in Metadata:</p>
+          <p className="text-gray-400">{update_authority.declared || "Unknown"}</p>
         </div>
-        {update_authority?.on_chain &&
-          update_authority?.declared &&
-          update_authority.on_chain !== update_authority.declared && (
-            <div className="text-yellow-400">
-              ⚠️ Mismatch between declared and on-chain update authority!
-            </div>
-        )}
+        <div>
+          <p className="text-gray-300 font-medium">💧 Pool Pair:</p>
+          <p className="text-gray-400">{pool_pair}</p>
+        </div>
+        <div>
+          <p className="text-gray-300 font-medium">📊 Total Liquidity:</p>
+          <p className="text-gray-400">
+            {liquidity_found && liquidity_usd > 0
+              ? `$${liquidity_usd.toFixed(2)}`
+              : "$0.00"}
+          </p>
+        </div>
+        <div>
+          <p className="text-gray-300 font-medium">🌐 Jupiter Tradable:</p>
+          <p className="text-gray-400">{jupiter_tradable ? "Yes" : "No"}</p>
+        </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mt-2">
-        {badges.map((badge, idx) => (
-          <span
-            key={idx}
-            className="bg-green-700 text-white text-xs px-2 py-1 rounded-full"
-          >
-            {badge}
-          </span>
-        ))}
+      <div className="mt-6">
+        <h3 className="text-lg text-green-400 font-semibold">✅ Badges</h3>
+        <ul className="list-disc ml-6 text-sm text-green-300 space-y-1">
+          {badges.length > 0 ? badges.map((b, i) => <li key={i}>{b}</li>) : (
+            <li>No badges found.</li>
+          )}
+        </ul>
       </div>
 
-      <div className="mt-2 space-y-1">
-        {flags.map((flag, idx) => (
-          <div key={idx} className="text-sm text-red-400">
-            {flag}
-          </div>
-        ))}
+      <div className="mt-4">
+        <h3 className="text-lg text-red-400 font-semibold">⚠️ Flags</h3>
+        <ul className="list-disc ml-6 text-sm text-red-300 space-y-1">
+          {flags.length > 0 ? flags.map((f, i) => <li key={i}>{f}</li>) : (
+            <li>No flags raised.</li>
+          )}
+        </ul>
       </div>
+
+      {token_metadata?.symbol && (
+        <div className="mt-4 text-sm text-gray-400">
+          <strong>Symbol:</strong> {clean(token_metadata.symbol)}
+        </div>
+      )}
     </div>
   );
 }

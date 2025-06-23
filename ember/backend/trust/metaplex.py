@@ -7,6 +7,12 @@ from borsh_construct import CStruct, String, U16, U8
 # Metaplex program ID
 METADATA_PROGRAM_ID = Pubkey.from_string("metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s")
 
+def clean_bytes(b) -> str:
+    if isinstance(b, bytes):
+        return b.decode("utf-8", errors="ignore").rstrip("\x00").strip()
+    return b.strip().rstrip("\x00")
+
+
 # === Metaplex Borsh Layout ===
 DataLayout = CStruct(
     "name" / String,
@@ -54,11 +60,12 @@ def decode_metaplex_metadata(mint_address: str, rpc_url="https://api.mainnet-bet
         return {
             "updateAuthority": str(update_authority),
             "mint": str(mint),
-            "name": decoded.name.strip("\x00"),
-            "symbol": decoded.symbol.strip("\x00"),
-            "uri": decoded.uri.strip("\x00"),
+            "name": clean_bytes(decoded.name),
+            "symbol": clean_bytes(decoded.symbol),
+            "uri": clean_bytes(decoded.uri),
             "sellerFeeBasisPoints": decoded.seller_fee_basis_points
         }
+        
     except Exception as e:
         print("[DEBUG] Failed to parse metadata layout:", e)
         return None

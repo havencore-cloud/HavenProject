@@ -1,0 +1,26 @@
+{
+  "mint": "BYZ9CcZGKAXmN2uDsKcQMM9UnZacija4vWcns9Th69xb",
+  "update_authority": {
+    "on_chain": "HRuLzZkfkmqt3sMRXLoSEA5i58Z4rm7qtPTQZmd14LUx",
+    "declared": "HRuLzZkfkmqt3sMRXLoSEA5i58Z4rm7qtPTQZmd14LUx"
+  },
+  "badges": [
+    "\u26a0\ufe0f Metadata can still be changed.",
+    "\u26a0\ufe0f Update Authority Active"
+  ],
+  "flags": [
+    "Network error: 500 Server Error: Internal Server Error for url: https://api-v3.raydium.io/pools/info/ids",
+    "Update authority not burned.",
+    "\u26a0\ufe0f Token not listed in Jupiter tradable tokens"
+  ],
+  "token_metadata": {
+    "name": "BOTIFY",
+    "symbol": "BOTIFY"
+  },
+  "liquidity": {
+    "found": false,
+    "pair": "Error",
+    "liquidity_usd": 0
+  },
+  "jupiter_tradable": false
+}
