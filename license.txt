@@ -1,0 +1,10 @@
+Copyright © 2025 Matt Zuern / HavenProject
+
+All rights reserved.
+
+This source code is provided for review and evaluation purposes only.  
+Use, reproduction, modification, distribution, or commercial deployment  
+is prohibited without explicit written permission from the author.
+
+This project is under active development and does not grant any license  
+rights at this time.
